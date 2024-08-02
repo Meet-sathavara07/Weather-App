@@ -1,3 +1,85 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://images.pexels.com/photos/1933180/pexels-photo-1933180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-app-container {
+  width: 600px;
+  max-width: 600px;
+}
+
+.weather-app-content {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  min-height: 400px; 
+}
+
+.weather-app-heading {
+  font-size: 2em;
+  margin-bottom: 30px;
+  font-weight: bold; 
+
+}
+
+.weather-app-select{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.weather-app-select-dropdown {
+  width: 50%;
+  padding: 15px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.weather-app-error {
+  color: red;
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+.weather-app-search-link {
+  color: blue;
+  cursor: pointer;
+}
+
+.weather-app-info {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.weather-app-city {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.weather-app-temperature {
+  font-size: 1.6rem;
+}

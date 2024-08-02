@@ -1,12 +1,11 @@
-// export default Game;
 import React from 'react';
-import Weather from './components/weather';
+import Weather from '../src/components/weather';
 import './style.css';
 
 function App() {
   return (
     <div>
-      <Weather />
+      <Weather/>
     </div>
   );
 }
