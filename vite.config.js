@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
-      outDir: 'output',
+      outDir: 'dist', // Change output directory to 'dist'
       rollupOptions: {
         input: './src/index.jsx',
         output: {
