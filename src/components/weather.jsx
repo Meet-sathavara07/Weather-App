@@ -1,7 +1,4 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import '../style.css';
 
 function Weather() {
@@ -10,14 +7,24 @@ function Weather() {
   const [selectedCity, setSelectedCity] = useState('');
   const [temp, setTemp] = useState('');
   const [showGoogleLink, setShowGoogleLink] = useState(false);
+  const [, setData] = useState([]);
 
   useEffect(() => {
-    // Load data from db.json
-    axios.get('../../db.json').then(response => {
-      setStatesWeatherData(response.data.statesWeatherData);
-    });
+    async function fetchData() {
+      try {
+        const response = await fetch('/db.json'); 
+        const result = await response.json();
+        setData(result);
+        // Assuming 'statesWeatherData' is part of the fetched data
+        setStatesWeatherData(result.statesWeatherData || []);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
   }, []);
-
+  
+  
   const handleStateSelect = (e) => {
     setSelectedState(e.target.value);
     setSelectedCity('');
@@ -50,6 +57,10 @@ function Weather() {
 
   return (
     <div className="weather">
+    <video autoPlay muted loop className="weather-background-video">
+      <source src="/video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
       <div className="weather-app-container">
         <div className="weather-app-content">
           <h1 className="weather-app-heading">Weather Checking</h1>
@@ -58,6 +69,7 @@ function Weather() {
               onChange={handleStateSelect}
               className="weather-app-select-dropdown"
               value={selectedState}
+              disabled={statesWeatherData.length === 0} 
             >
               <option value="" disabled>Select State</option>
               {statesWeatherData.map((state) => (
@@ -71,6 +83,7 @@ function Weather() {
                 onChange={handleCitySelect}
                 className="weather-app-select-dropdown"
                 value={selectedCity}
+                disabled={statesWeatherData.length === 0}
               >
                 <option value="" disabled>Select City</option>
                 {statesWeatherData
@@ -94,7 +107,7 @@ function Weather() {
           {temp && (
             <div className="weather-app-info">
               <h2 className="weather-app-city">{selectedCity}</h2>
-              <p className="weather-app-temperature">Temperature: {temp}</p>
+              <p className="weather-app-temperature">Temperature:- <span>{temp}</span> </p>
             </div>
           )}
         </div>
