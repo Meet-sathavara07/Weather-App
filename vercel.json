@@ -1,7 +1,0 @@
-{
-    "public": "./public",
-    "rewrites": [
-      { "source": "/db.json", "destination": "/public/db.json" }
-    ]
-  }
-  
