@@ -12,7 +12,7 @@ function Weather() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/public/db.json');
+        const response = await fetch('/db.json');
         const result = await response.json();
         setData(result);
         setStatesWeatherData(result.statesWeatherData || []);
