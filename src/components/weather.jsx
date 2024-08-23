@@ -12,10 +12,9 @@ function Weather() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/db.json'); 
+        const response = await fetch('/public/db.json');
         const result = await response.json();
         setData(result);
-        // Assuming 'statesWeatherData' is part of the fetched data
         setStatesWeatherData(result.statesWeatherData || []);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -58,7 +57,7 @@ function Weather() {
   return (
     <div className="weather">
     <video autoPlay muted loop className="weather-background-video">
-      <source src="/video.mp4" type="video/mp4" />
+      <source src="https://ik.imagekit.io/ppje0kzhr/video.mp4?updatedAt=1724390769215" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
       <div className="weather-app-container">
