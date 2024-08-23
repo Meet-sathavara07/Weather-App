@@ -89,9 +89,8 @@
     "start": "vite",
     "eslint": "eslint . --fix",
     "prettier": "prettier . --write",
-    "prepare": "husky install",
-    "start:server": "json-server --watch db.json",
     "lint-staged": "lint-staged"
+
   },
   "lint-staged": {
     "*.js": [
