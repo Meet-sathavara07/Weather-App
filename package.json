@@ -87,6 +87,7 @@
   },
   "scripts": {
     "start": "vite",
+    "build": "vite build",
     "eslint": "eslint . --fix",
     "prettier": "prettier . --write",
     "lint-staged": "lint-staged"
